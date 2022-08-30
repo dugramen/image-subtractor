@@ -1,6 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+}
+
+:root {
+  --bg-color: hsl(0, 0%, 90%);
+  --light-color: hsl(0, 0%, 60%);
+  --main-color: hsl(0, 0%, 50%);
+  --text-color: white;
+}
+
+input {
+  transition: .3s;
+}
+
+.url {
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  height: 28px;
+}
+.url:active, .url:focus, textarea:focus {
+  background-color: hsl(0, 0%, 95%);
+  border: none;
+  outline: none;
+}
+.url:hover, .url:hover {
+  height: 32px;
+  background-color: var(--text-color);
+}
+
+div {
+  gap: 8px;
+  column-gap: 8px;
+}
+
+button {
+  cursor: pointer;
+  color: var(--text-color);
+  background: var(--main-color);
+  border: none;
+  border-radius: 10px;
+  padding: 4px 12px;
+  transition: transform .3s;
+}
+button:hover, button:active {
+  background-color: var(--light-color);
+}
+button:hover {
+  transform: scale(1.1);
+}
+button:active {
+  transform: scale(.9);
+}
+
+.button-holders {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  height: 100vh;
+  background-color: var(--bg-color);
 }
+
+.file-upload {
+  min-height: 24px;
+}
+
+.final-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  background: gray;
+}
+
+.final-canvas.checkered {
+  background: repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+}
+
+.images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: .3s;
+}
+.images-container.collapsed {
+  max-height: 0%;
+}
+.images-container.expanded {
+  max-height: 100%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  flex-shrink: 1;
+  flex-grow: 0;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.image-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-self: center;
+  align-self: center;;
+  gap: 4px;
+}
+
+.image-container canvas {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: aqua;
+}
+
 
 .App-logo {
   height: 40vmin;
