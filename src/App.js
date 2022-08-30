@@ -96,7 +96,6 @@ function App() {
                 type={'file'}
                 accept={'image/*'}
                 onChange={event => {
-                  console.log('changed')
                   const canvas = images[id].ref.current;
                   const reader = new FileReader();
                   
@@ -105,12 +104,11 @@ function App() {
                     canvas.width = img.width
                     canvas.height = img.height
                     canvas.getContext('2d').drawImage(img, 0, 0)
-                    console.log('was loaded')
                   }
                   reader.onload = (e) => {
                     img.src = e.target.result;
                   }
-                  console.log(event.target.files[0])
+                  // console.log(event.target.files[0])
                   reader.readAsDataURL(event.target.files[0])
                   
                   setImages(oldImages => ({
@@ -133,7 +131,6 @@ function App() {
                     canvas.width = img.width
                     canvas.height = img.height
                     canvas.getContext('2d').drawImage(img, 0, 0)
-                    console.log('was loaded')
                   }
                   img.src = event.target.value
                   img.crossOrigin = "Anonymous";
@@ -185,7 +182,7 @@ function App() {
       </div>
 
       <div>
-        Subtract pixels that are:
+        Extract pixels that are:
         <label>
           <input
             type={'radio'}
